@@ -24,7 +24,10 @@ class _HomeLayoutState extends State<HomeLayout> {
         ),
         body: listOfPages[currentIndex],
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () async {
+            var name = await getName();
+            print(name);
+          },
           child: Icon(Icons.add),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -42,5 +45,9 @@ class _HomeLayoutState extends State<HomeLayout> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.archive_outlined), label: 'Archived'),
             ]));
+  }
+
+  Future<String> getName() async {
+    return 'Happy';
   }
 }
